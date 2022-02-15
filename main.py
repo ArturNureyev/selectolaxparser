@@ -29,7 +29,7 @@ def earnings_next_two_weeks():
         earnings[dict_date] = f"{earnings[dict_date]}{tickers_list} "
         url = url.replace(str(i), str(i + 1))
         earnings_date = earnings_date + datetime.timedelta(days=1)
-    print(earnings)
+    return earnings
 
 
 earnings_next_two_weeks()
