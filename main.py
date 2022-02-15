@@ -1,6 +1,7 @@
 import requests
 import datetime
 from selectolax.parser import HTMLParser
+from holidays import market_holidays_2022_list
 
 
 def earnings_next_two_weeks():
@@ -14,7 +15,7 @@ def earnings_next_two_weeks():
 
     earnings_date = datetime.date.today()
     for i in range(14):
-        if earnings_date.weekday() == 5 or earnings_date.weekday() == 6:
+        if earnings_date.weekday() == 5 or earnings_date.weekday() == 6 or earnings_date in market_holidays_2022_list():
             url = url.replace(str(i), str(i + 1))
             earnings_date = earnings_date + datetime.timedelta(days=1)
             continue
